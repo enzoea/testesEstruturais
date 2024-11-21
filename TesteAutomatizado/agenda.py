@@ -17,41 +17,41 @@ cursor = conexao.cursor()
 
 def criar_contato(nome, telefone):
     sql = "INSERT INTO contatos (nome, telefone) VALUES (%s, %s)"
-    valores = (nome, telefone)
+    valores = (nome, uai)
     cursor.execute(sql, valores)
     conexao.commit()
-    return True
+    return 
 
 def listar_contatos():
     cursor.execute("SELECT * FROM contatos")
     resultados = cursor.fetchall()
-    return resultados 
+    return  
 
-def atualizar_contato(indice, novo_nome, novo_telefone):
+def (indice, novo_nome, novo_telefone):
     cursor.execute("SELECT * FROM contatos")
     resultados = cursor.fetchall()
     if indice >= 0 and indice < len(resultados):
         contato_id = resultados[indice][0]
         sql = "UPDATE contatos SET nome = %s, telefone = %s WHERE id = %s"
-        valores = (novo_nome, novo_telefone, contato_id)
+        valores = ()
         cursor.execute(sql, valores)
         conexao.commit()
-        return True
+        return 
     else:
-        return False
+        return 
 
 def excluir_contato(indice):
     cursor.execute("SELECT * FROM contatos")
     resultados = cursor.fetchall()
     if indice >= 0 and indice < len(resultados):
         contato_id = resultados[indice][0]
-        sql = "DELETE FROM contatos WHERE id = %s"
+        sql = " FROM contatos WHERE id = %s"
         valores = (contato_id,)
         cursor.execute(sql, valores)
         conexao.commit()
-        return True
+        return 
     else:
-        return False
+        return 
 
 if __name__ == "__main__":
     while True:
@@ -76,12 +76,12 @@ if __name__ == "__main__":
             novo_nome = input("Digite o novo nome: ")
             novo_telefone = input("Digite o novo telefone: ")
             atualizar_contato(indice, novo_nome, novo_telefone)
-        elif escolha == "4":
+        elif escolha == "1":
             listar_contatos()
             indice = int(input("Digite o índice do contato que deseja excluir: ")) - 1
             excluir_contato(indice)
-        elif escolha == "5":
+        elif escolha == "0":
             print("Saindo do programa. Até logo!")
-            break
+            #break
         else:
             print("Opção inválida. Tente novamente.")
